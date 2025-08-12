@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar styles */
+.scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-slate-800 rounded-full;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-slate-600 rounded-full hover:bg-slate-500;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-500;
+}
+
+/* Monaco Editor custom styles */
+.monaco-editor .margin {
+    background-color: transparent !important;
+}
+
+.monaco-editor .monaco-editor-background {
+    background-color: #0F172A !important;
+}
+
+.monaco-editor .current-line {
+    background-color: rgba(30, 41, 59, 0.5) !important;
+}
+
+/* Custom animations */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Glass morphism utilities */
+.glass {
+    @apply bg-white/10 backdrop-blur-sm border border-white/20;
+}
+
+.glass-dark {
+    @apply bg-slate-900/20 backdrop-blur-sm border border-slate-700/20;
+}
+
+/* Text gradient utilities */
+.text-gradient {
+    @apply bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent;
+}
+
+.text-gradient-warm {
+    @apply bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent;
+}
+
+.text-gradient-cool {
+    @apply bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent;
+}
+
+/* Button hover effects */
+.btn-glow {
+    @apply transition-all duration-300;
+}
+
+.btn-glow:hover {
+    box-shadow: 0 0 20px currentColor;
+}
+
+/* Code block improvements */
+pre[class*="language-"] {
+    @apply !bg-transparent !p-0 !m-0 !border-none;
+}
+
+code[class*="language-"] {
+    @apply !bg-transparent;
+}
+
+.token.comment {
+    @apply !text-slate-400;
+}
+
+.token.keyword {
+    @apply !text-blue-400;
+}
+
+.token.string {
+    @apply !text-green-400;
+}
+
+.token.number {
+    @apply !text-yellow-400;
+}
+
+.token.function {
+    @apply !text-purple-400;
+}
+
+/* Loading animations */
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.02);
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1025px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Dark mode enhancements */
+body {
+    @apply bg-slate-900 text-white antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Selection styles */
+::selection {
+    @apply bg-blue-500/30;
+}
+
+::-moz-selection {
+    @apply bg-blue-500/30;
+}
+
+/* Focus styles */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    @apply outline-none ring-2 ring-blue-400/50 ring-offset-2 ring-offset-slate-900;
+}
+
+/* Link styles */
+a {
+    @apply transition-colors duration-200;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for specific elements while keeping functionality */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Custom loader */
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #64748b;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Syntax highlighting improvements */
+.hljs {
+    @apply !bg-transparent;
+}
+
+/* Monaco editor line numbers */
+.monaco-editor .line-numbers {
+    color: #64748b !important;
+}
+
+/* Custom backdrop blur for Safari */
+@supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    .backdrop-blur-safari {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+}
+
+
+/*aded later */
+/* Add to globals.css */
+@media (max-width: 640px) {
+    .mobile-content-height {
+        min-height: calc(100vh - 180px) !important;
+    }
+
+    .mobile-editor-height {
+        height: 50vh !important;
+        min-height: 300px !important;
+    }
+}
+/* Monaco Editor mobile fixes */
+@media (max-width: 1024px) {
+    .monaco-editor {
+        min-height: 300px !important;
+    }
+    .monaco-editor .overflow-guard {
+        min-height: 300px !important;
+    }
+}
+
+/* Mobile height adjustments */
+@media (max-width: 640px) {
+    .mobile-content-height {
+        min-height: calc(60vh - 80px) !important;
+    }
+    .mobile-editor-height {
+        height: 40vh !important;
+        min-height: 40vh !important;
+    }
+}
+@media (max-width: 768px) {
+    .monaco-editor,
+    .monaco-editor .overflow-guard {
+        height: 100% !important;
+        min-height: 200px !important;
+    }
+}
+
