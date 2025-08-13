@@ -9,7 +9,7 @@ const CodeEditor = ({ initialCode = '', language = 'javascript' }) => {
     const [code, setCode] = useState(initialCode);
     const [output, setOutput] = useState('');
     const [isRunning, setIsRunning] = useState(false);
-    const [isOutputVisible, setIsOutputVisible] = useState(true);
+    const [isOutputVisible, setIsOutputVisible] = useState(false);
     const [error, setError] = useState(null);
     const [executionTime, setExecutionTime] = useState('');
     const [isMobile, setIsMobile] = useState(false);
@@ -249,8 +249,8 @@ const CodeEditor = ({ initialCode = '', language = 'javascript' }) => {
 
             {/* Editor and Output Container */}
             <div className="flex-1 flex flex-col lg:flex-row overflow-hidden" ref={editorRef}>
-                {/* Editor */}
-                <div className={`flex-1 min-h-[300px] ${isOutputVisible ? 'lg:min-h-full' : 'min-h-full'}`}>
+                {/* Editor flex-1 relative ${isOutputVisible && (isMobile || isTablet) ? 'h-1/2' : 'h-full'} */}
+                <div className={`flex-1 min-h-0 relative`}>
                     <Editor
                         height="100%"
                         language={language}
@@ -299,9 +299,7 @@ const CodeEditor = ({ initialCode = '', language = 'javascript' }) => {
                 {/* Output Panel */}
                 {isOutputVisible && (
                     <motion.div
-                        className={`w-full lg:w-96 border-t lg:border-t-0 lg:border-l border-slate-700/50 bg-slate-900/80 flex flex-col ${
-                            isMobile ? 'h-[40vh]' : 'h-full'
-                        }`}
+                        className={`absolute inset-0 z-50 bg-slate-900/95 backdrop-blur-sm flex flex-col p-4`} //w-full lg:w-96 border-t lg:border-t-0 lg:border-l border-slate-700/50 bg-slate-900/80 flex flex-col ${ isMobile ? 'h-[100vh]' : 'h-full'
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.2 }}

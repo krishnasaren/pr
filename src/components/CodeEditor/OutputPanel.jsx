@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, X, Copy, Trash2, AlertCircle, CheckCircle } from 'lucide-react';
 
+
 const OutputPanel = ({ output, error, executionTime, onClose, onClear }) => {
     const outputRef = useRef(null);
 

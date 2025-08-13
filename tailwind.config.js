@@ -81,6 +81,13 @@ module.exports = {
         'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
         'glow': '0 0 20px rgba(59, 130, 246, 0.5)',
         'neon': '0 0 10px currentColor, 0 0 20px currentColor, 0 0 40px currentColor',
+      },
+      screens : {
+        xs: '480px',
+        'max-sm': {'max': '639px'},    // max width 639px
+        'max-md': {'max': '767px'},    // max width 767px
+        'max-lg': {'max': '1023px'},   // max width 1023px
+        'max-xl': {'max': '1279px'},   // max width 1279px
       }
     },
   },
